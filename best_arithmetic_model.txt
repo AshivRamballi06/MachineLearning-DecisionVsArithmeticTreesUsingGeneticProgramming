@@ -1,0 +1,44 @@
+MODEL_VERSION=1
+MODEL_TYPE=ARITHMETIC_GP
+DESCRIPTION=Overall best arithmetic GP model
+RUN=22
+SEED=500
+GENERATION=21
+TRAINING_ACCURACY=0.836066
+TRAINING_ACCURACY_PERCENT=83.606557
+TRAINING_FMEASURE=0.423077
+TREE_SIZE=15
+FUNCTION_SET=+,-,*,protected_division
+FEATURE_KEY:
+CSV column 0 = class label / actual class
+CSV column 1 = x0 = age
+CSV column 2 = x1 = menopause
+CSV column 3 = x2 = tumor_size
+CSV column 4 = x3 = inv_nodes
+CSV column 5 = x4 = node_caps
+CSV column 6 = x5 = degree_of_malignancy
+CSV column 7 = x6 = breast
+CSV column 8 = x7 = breast_quad
+CSV column 9 = x8 = irradiat
+CLASSIFICATION_RULE=expression >= 0 predicts class 1 else class 0
+PREFIX=ADD(SUB(F3,C4),MUL(DIV(SUB(F5,F3),F8),DIV(F5,SUB(F5,C2))))
+EXPRESSION=((x3 - 4) + (((x5 - x3) / x8) * (x5 / (x5 - 2))))
+EXPRESSION_WITH_COLUMN_NAMES=((inv_nodes - 4) + (((degree_of_malignancy - inv_nodes) / irradiat) * (degree_of_malignancy / (degree_of_malignancy - 2))))
+
+ARITHMETIC_TREE:
++
+├── -
+│   ├── x3
+│   └── 4
+└── *
+    ├── /
+    │   ├── -
+    │   │   ├── x5
+    │   │   └── x3
+    │   └── x8
+    └── /
+        ├── x5
+        └── -
+            ├── x5
+            └── 2
+
