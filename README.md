@@ -1,6 +1,6 @@
 ========================================================================
 COS314 - ASSIGNMENT 3: GENETIC PROGRAMMING CLASSIFIER
-========================================================================
+
 
 This archive contains the executable JAR file for Assignment 3, 
 comparing Decision Tree and Arithmetic Genetic Programming algorithms 
@@ -66,3 +66,4 @@ Use the following specific parameters for the Arithmetic GP evaluation:
   not, the program will simply skip test evaluation and only show 
   training results.
 ========================================================================
+
